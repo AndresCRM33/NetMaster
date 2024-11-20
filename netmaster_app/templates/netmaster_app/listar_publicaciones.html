@@ -123,6 +123,7 @@
                     {% if publicacion.autor == user %}
                         <!-- Enlace para eliminar publicación si el usuario es el autor -->
                         <a href="{% url 'delete_post' publicacion.id %}" class="delete-button">Eliminar</a>
+                        <a href="{% url 'update_post' publicacion.id %}" class="delete-button">Actualizar</a>
                     {% endif %}
                 </li>
             {% endfor %}

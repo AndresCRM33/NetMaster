@@ -99,4 +99,27 @@ def delete_post(request, post_id):
     return render(request, 'netmaster_app/confirm_delete.html', {'publicacion': publicacion})
     
     
+@login_required
+def update_post(request, post_id):
+    publicacion = get_object_or_404(Publicacion, pk=post_id)
+
+    # Verifica si el usuario autenticado es el autor de la publicación
+    if request.user != publicacion.autor:
+        messages.error(request, "No tienes permiso para editar esta publicación.")
+        return redirect('lista_publicaciones')
+
+    if request.method == 'POST':
+        form = PublicacionForm(request.POST, instance=publicacion)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "¡Publicación actualizada con éxito!")
+            return redirect('lista_publicaciones')
+        else:
+            messages.error(request, "Hubo un error al actualizar la publicación.")
+    else:
+        form = PublicacionForm(instance=publicacion)
+
+    return render(request, 'netmaster_app/editar_publicacion.html', {'form': form, 'publicacion': publicacion})
+
+
     # Create your views here.
