@@ -10,6 +10,8 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from .forms import PublicacionForm  # Aquí se importa el formulario
+from django.shortcuts import get_object_or_404, redirect
+
 
 #http://127.0.0.1:8000/
 
@@ -81,5 +83,20 @@ def lista_publicaciones(request):
     publicaciones = Publicacion.objects.all().order_by('-fecha_creacion')  # Evita duplicados con .distinct() si es necesario
     return render(request, 'netmaster_app/listar_publicaciones.html', {'publicaciones': publicaciones})
 
+@login_required
+def delete_post(request, post_id):
+    publicacion = get_object_or_404(Publicacion, pk=post_id)
 
-# Create your views here.
+    # Verificamos si el usuario autenticado es el autor de la publicación
+    if request.user == publicacion.autor:
+        if request.method == 'POST':
+            # Si es una petición POST, eliminamos la publicación
+            publicacion.delete()
+            # Redirigimos a la página que lista las publicaciones
+            return redirect('lista_publicaciones')  # Redirige a la vista de lista_publicaciones
+    
+    # Si no se realiza la eliminación, renderizamos la página de confirmación
+    return render(request, 'netmaster_app/confirm_delete.html', {'publicacion': publicacion})
+    
+    
+    # Create your views here.

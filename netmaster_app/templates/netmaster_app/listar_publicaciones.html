@@ -120,6 +120,10 @@
                     <h2>{{ publicacion.titulo }}</h2>
                     <p>{{ publicacion.contenido }}</p>
                     <small>Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_creacion }}</small>
+                    {% if publicacion.autor == user %}
+                        <!-- Enlace para eliminar publicación si el usuario es el autor -->
+                        <a href="{% url 'delete_post' publicacion.id %}" class="delete-button">Eliminar</a>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
