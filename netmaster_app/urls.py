@@ -7,5 +7,6 @@ urlpatterns = [
     path('update_post/<int:post_id>/', views.update_post, name='update_post'),
     path('registrar/', views.registrar_usuario, name='registrar_usuario'),  # Vista para registrar un nuevo usuario
     path('', views.lista_publicaciones, name='lista_publicaciones'),  # Vista para listar publicaciones
+    path('perfil/', views.perfil_usuario, name='perfil_usuario'),
 ]
 

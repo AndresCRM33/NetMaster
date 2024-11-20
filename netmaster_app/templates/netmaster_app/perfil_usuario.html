@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de {{ usuario.username }}</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ usuario.username }}!</h1>
+    
+    <p><strong>Nombre de usuario:</strong> {{ usuario.username }}</p>
+    <p><strong>Correo electrónico:</strong> {{ usuario.email }}</p>
+    <p><strong>Fecha de creación de la cuenta:</strong> {{ usuario.date_joined }}</p>
+
+    <a href="{% url 'lista_publicaciones' %}">Volver a las publicaciones</a>  <!-- Enlace para volver a la lista de publicaciones -->
+</body>
+</html>

@@ -103,6 +103,7 @@
             {% if user.is_authenticated %}
                 <p>Bienvenido, {{ user.username }}!</p>
                 <a href="{% url 'logout' %}">Cerrar sesión</a>
+                <a href="{% url 'perfil_usuario' %}">Perfil</a>
             {% else %}
                 <a href="{% url 'login' %}">Iniciar sesión</a>
             {% endif %}

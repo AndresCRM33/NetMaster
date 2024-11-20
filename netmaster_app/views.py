@@ -121,5 +121,9 @@ def update_post(request, post_id):
 
     return render(request, 'netmaster_app/editar_publicacion.html', {'form': form, 'publicacion': publicacion})
 
+@login_required
+def perfil_usuario(request):
+    usuario = request.user  # Obtiene el usuario autenticado
+    return render(request, 'netmaster_app/perfil_usuario.html', {'usuario': usuario})
 
     # Create your views here.
