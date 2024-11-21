@@ -91,12 +91,6 @@
 </head>
 <body>
     <div class="container">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="message">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        
         <h1>Agregar Publicación</h1>
         <form method="post">
             {% csrf_token %}

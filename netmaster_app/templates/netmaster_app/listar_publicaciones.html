@@ -7,11 +7,14 @@
     <style>
         /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         h1, h2 {
@@ -19,7 +22,7 @@
         }
 
         a {
-            color: #2980B9;
+            color: #007bff;
             text-decoration: none;
         }
 
@@ -35,7 +38,10 @@
         .container {
             width: 80%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilos del encabezado y el área de bienvenida */
@@ -43,9 +49,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
+            padding-bottom: 1rem;
             border-bottom: 2px solid #ddd;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
         }
 
         .header p {
@@ -61,6 +67,8 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2rem;
         }
 
         .add-publication:hover {
@@ -74,11 +82,15 @@
         }
 
         .publication-list li {
+            width: 100%;
             background-color: white;
             border-radius: 8px;
             margin-bottom: 20px;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .publication-list h2 {
@@ -94,25 +106,97 @@
             color: #7F8C8D;
         }
 
+        /* Estilo para los botones de eliminar y actualizar */
+        .delete-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #E74C3C;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .delete-button:hover {
+            background-color: #C0392B;
+        }
+
+        /* Estilos para los mensajes */
+        .message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para la barra de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .navbar .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .user-info a {
+            margin-left: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Estilos para el pie de página */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Ejemplo de enlace para cerrar sesión en la plantilla -->
-        <div class="header">
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- Logo como texto -->
+            NetMaster
+        </div>
+        <div class="user-info">
             {% if user.is_authenticated %}
-                <p>Bienvenido, {{ user.username }}!</p>
-                <a href="{% url 'logout' %}">Cerrar sesión</a>
-                <a href="{% url 'perfil_usuario' %}">Perfil</a>
+            <a href="{% url 'perfil_usuario' %}">{{ user.username }}</a>
             {% else %}
-                <a href="{% url 'login' %}">Iniciar sesión</a>
+            <a href="{% url 'login' %}">Iniciar sesión</a>
             {% endif %}
         </div>
-
+    </nav>
+    
+    <div class="container">
+        <p>Bienvenido, {{ user.username }}!</p>
         <h1>Publicaciones</h1>
         
         {% if user.is_authenticated %}
             <a href="agregar/" class="add-publication">Agregar nueva publicación</a>
+        {% endif %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
         {% endif %}
         
         <ul class="publication-list">
@@ -130,5 +214,11 @@
             {% endfor %}
         </ul>
     </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 NetMaster. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
