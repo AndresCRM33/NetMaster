@@ -132,3 +132,8 @@ LOGIN_REDIRECT_URL = 'lista_publicaciones'  # Cambia 'lista_publicaciones' por e
 
 LOGOUT_REDIRECT_URL = 'logout'  # Redirige a la vista de login después de cerrar sesión
 
+
+STATIC_URL = '/static/'  # URL para acceder a los archivos estáticos
+
+
+

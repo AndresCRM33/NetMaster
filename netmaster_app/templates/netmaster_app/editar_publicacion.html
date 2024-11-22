@@ -1,29 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Publicación</title>
+    <link rel="stylesheet" href="{% static 'css/editar_publicacion.css' %}">
 </head>
 <body>
-    <h1>Editar publicación</h1>
-    <form method="POST">
-        {% csrf_token %}
-        
-        <!-- Campo para el título de la publicación -->
-        <label for="titulo">Título</label>
-        <input type="text" id="titulo" name="titulo" value="{{ publicacion.titulo }}" required>
+    <div class="container">
+        <h1>Editar publicación</h1>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- Campo para el título de la publicación -->
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" value="{{ publicacion.titulo }}" required>
 
-        <!-- Campo para el contenido de la publicación -->
-        <label for="contenido">Contenido</label>
-        <textarea id="contenido" name="contenido" required>{{ publicacion.contenido }}</textarea>
+            <!-- Campo para el contenido de la publicación -->
+            <label for="contenido">Contenido</label>
+            <textarea id="contenido" name="contenido" required>{{ publicacion.contenido }}</textarea>
 
-        <button type="submit">Actualizar</button>  <!-- Botón para actualizar la publicación -->
-    </form>
+            <button type="submit" class="btn-primary">Actualizar</button>  <!-- Botón para actualizar la publicación -->
+        </form>
 
-    <a href="{% url 'lista_publicaciones' %}">Cancelar</a>  <!-- Enlace para cancelar -->
-
+        <a href="{% url 'lista_publicaciones' %}" class="btn-cancelar">Cancelar</a>  <!-- Enlace para cancelar -->
+    </div>
 </body>
 </html>
-
 

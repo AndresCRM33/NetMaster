@@ -1,0 +1,99 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d9d9d9;
+    color: #101010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 2rem;
+    color: #1c1c85; /* Azul para el título */
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para los campos del formulario */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    color: #101010; /* Negro para las etiquetas */
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #1c1c85; /* Azul para el foco */
+    outline: none;
+}
+
+/* Estilos para el botón de actualizar */
+.btn-primary {
+    background-color: #1c1c85; /* Azul para el botón */
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #16297a; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para el botón de cancelar */
+.btn-cancelar {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #1c1c85; /* Azul para el enlace */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.btn-cancelar:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #101010; /* Negro */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}

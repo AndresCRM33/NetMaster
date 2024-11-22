@@ -1,172 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Publicaciones</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        h1, h2 {
-            color: #2C3E50;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        /* Contenedor principal */
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 3rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilos del encabezado y el área de bienvenida */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #ddd;
-            margin-bottom: 2rem;
-        }
-
-        .header p {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        /* Estilo para el botón de "agregar nueva publicación" */
-        .add-publication {
-            padding: 10px 20px;
-            background-color: #27AE60;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
-        .add-publication:hover {
-            background-color: #2ECC71;
-        }
-
-        /* Estilo para la lista de publicaciones */
-        .publication-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .publication-list li {
-            width: 100%;
-            background-color: white;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .publication-list h2 {
-            margin-top: 0;
-            font-size: 1.5em;
-            color: #34495E;
-        }
-
-        .publication-list small {
-            display: block;
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #7F8C8D;
-        }
-
-        /* Estilo para los botones de eliminar y actualizar */
-        .delete-button {
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #E74C3C;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .delete-button:hover {
-            background-color: #C0392B;
-        }
-
-        /* Estilos para los mensajes */
-        .message {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        /* Estilo para la barra de navegación */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: #007bff;
-            color: white;
-        }
-
-        .navbar .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .navbar .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .user-info a {
-            margin-left: 1rem;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Estilos para el pie de página */
-        .footer {
-            background-color: #343a40;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: auto;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'css/listar_publicaciones.css' %}">
 </head>
 <body>
 
@@ -190,7 +29,7 @@
         <h1>Publicaciones</h1>
         
         {% if user.is_authenticated %}
-            <a href="agregar/" class="add-publication">Agregar nueva publicación</a>
+            <a href="{% url 'agregar_publicacion' %}" class="add-publication">Agregar nueva publicación</a>
         {% endif %}
 
         {% if messages %}
@@ -206,9 +45,11 @@
                     <p>{{ publicacion.contenido }}</p>
                     <small>Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_creacion }}</small>
                     {% if publicacion.autor == user %}
-                        <!-- Enlace para eliminar publicación si el usuario es el autor -->
-                        <a href="{% url 'delete_post' publicacion.id %}" class="delete-button">Eliminar</a>
-                        <a href="{% url 'update_post' publicacion.id %}" class="delete-button">Actualizar</a>
+                        <!-- Contenedor para los botones de eliminar y actualizar -->
+                        <div class="action-buttons">
+                            <a href="{% url 'delete_post' publicacion.id %}" class="delete-button">Eliminar</a>
+                            <a href="{% url 'update_post' publicacion.id %}" class="update-button">Actualizar</a>
+                        </div>
                     {% endif %}
                 </li>
             {% endfor %}

@@ -1,0 +1,103 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d9d9d9; /* Gris claro */
+    color: #101010; /* Negro para texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #FFFFFF; /* Blanco para el contenedor */
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #1c1c85; /* Azul para el título */
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #101010; /* Negro para las etiquetas */
+}
+
+/* Campos de entrada (input, textarea) */
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Gris claro para bordes */
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: #1c1c85; /* Azul para el foco */
+    outline: none;
+}
+
+/* Botón de enviar (Publicar) */
+button {
+    padding: 10px;
+    background-color: #1c1c85; /* Azul para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #16297a; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Enlace para volver a la lista */
+a {
+    text-decoration: none;
+    color: #1c1c85; /* Azul para el enlace */
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Mensaje de alerta (en caso de error o éxito) */
+.message {
+    background-color: #f9edbe; /* Amarillo suave */
+    color: #856404; /* Amarillo oscuro para el texto */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

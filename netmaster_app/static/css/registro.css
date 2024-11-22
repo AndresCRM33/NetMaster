@@ -8,7 +8,7 @@
 /* Estilos globales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7; /* Gris de fondo */
+    background-color: #f7f7f7; /* Gris claro para el fondo */
     color: #101010; /* Negro para el texto general */
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ body {
 
 /* Estilos para el encabezado (Bienvenida) */
 .welcome {
-    background-color: #1c1c85; /* Azul para el encabezado */
+    background-color: #1c1c85; /* Azul oscuro para el encabezado */
     color: white;
     text-align: center;
     padding: 2rem;
@@ -43,27 +43,27 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 /* Título principal */
-h2 {
+h1 {
     text-align: center;
     margin-bottom: 2rem;
     color: #1c1c85; /* Azul para el título del formulario */
 }
 
 /* Estilos para los campos de formulario */
-.form-group {
+.mb-3 {
     margin-bottom: 1.5rem; /* Espacio entre los campos */
 }
 
-.form-group label {
+.form-label {
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
-    color: #101010; /* Color negro para las etiquetas */
+    color: #101010; /* Negro para las etiquetas */
 }
 
 .form-control {
@@ -81,7 +81,7 @@ h2 {
     outline: none;
 }
 
-/* Estilos para el botón de inicio de sesión */
+/* Estilos para el botón de registro */
 .btn-primary {
     background-color: #1c1c85; /* Azul para el botón */
     border: none;
@@ -106,7 +106,7 @@ h2 {
     margin-top: 1rem;
 }
 
-/* Enlace de registro */
+/* Estilo de texto para los enlaces */
 p {
     text-align: center;
 }

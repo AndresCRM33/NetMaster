@@ -1,0 +1,190 @@
+/* Reset de algunos márgenes y paddings predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d9d9d9; /* Gris de fondo */
+    margin: 0;
+    padding: 0;
+    color: #101010; /* Negro para el texto general */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Encabezados */
+h1, h2 {
+    color: #101010; /* Negro para los encabezados */
+}
+
+/* Enlaces */
+a {
+    color: #1c1c85; /* Azul para los enlaces */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Párrafos */
+p {
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: #FFFFFF; /* Blanco para el fondo del contenedor */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del encabezado y el área de bienvenida */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #d9d9d9; /* Gris claro para la línea de separación */
+    margin-bottom: 2rem;
+}
+
+.header p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #101010; /* Negro para el texto del encabezado */
+}
+
+/* Estilo para el botón de "agregar nueva publicación" */
+.add-publication {
+    padding: 10px 20px;
+    background-color: #1c1c85; /* Azul para el botón */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.add-publication:hover {
+    background-color: #16297a; /* Azul más oscuro al hacer hover */
+}
+
+/* Estilo para la lista de publicaciones */
+.publication-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publication-list li {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative; /* Esto permite posicionar los botones en relación a este contenedor */
+}
+
+.publication-list h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #101010; /* Negro para el título de la publicación */
+}
+
+.publication-list small {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #7f8c8d; /* Gris para el texto secundario */
+}
+
+/* Estilo para los botones de eliminar y actualizar */
+.action-buttons {
+    position: absolute; /* Posiciona los botones de forma absoluta dentro de .publication-list */
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la parte derecha */
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.delete-button, .update-button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.delete-button {
+    background-color: #e74c3c; /* Rojo para eliminar */
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Rojo más oscuro al hacer hover */
+}
+
+.update-button {
+    background-color: #1c1c85; /* Azul para actualizar */
+}
+
+.update-button:hover {
+    background-color: #16297a; /* Azul más oscuro al hacer hover */
+}
+
+/* Estilos para los mensajes */
+.message {
+    background-color: #f8d7da; /* Fondo rojo claro para los mensajes de error */
+    color: #721c24; /* Color rojo oscuro para el texto */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1c1c85; /* Azul para la barra de navegación */
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .user-info a {
+    margin-left: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilos para el pie de página */
+.footer {
+    background-color: #101010; /* Negro para el pie de página */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}

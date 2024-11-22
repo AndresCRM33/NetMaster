@@ -1,0 +1,81 @@
+/* Reset de algunos márgenes y paddings predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d9d9d9; /* Gris de fondo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #FFFFFF; /* Blanco para el contenedor */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    color: #101010; /* Negro para el título */
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Mensaje de confirmación */
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #101010; /* Negro para el texto */
+}
+
+/* Contenedor de botones y enlace */
+.form-actions {
+    margin-top: 20px;
+}
+
+/* Estilos del botón de eliminación */
+button {
+    background-color: #1c1c85; /* Azul para el botón */
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* Cambio de color al pasar el mouse por encima */
+button:hover {
+    background-color: #16297a; /* Azul más oscuro al hacer hover */
+}
+
+/* Estilos del enlace de cancelar */
+a {
+    display: block;
+    margin-top: 15px;
+    color: #1c1c85; /* Azul para el enlace */
+    font-size: 16px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+/* Subrayado del enlace al pasar el mouse */
+a:hover {
+    text-decoration: underline;
+}

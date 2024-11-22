@@ -1,18 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Eliminación</title>
+    <link rel="stylesheet" href="{% static 'css/confirm_delete.css' %}">
 </head>
 <body>
-    <h1>Confirmar eliminación de publicación</h1>
-    <p>¿Seguro que deseas eliminar la publicación "{{ publicacion.titulo }}"?</p>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Eliminar</button>
-    </form>
-    <a href="{% url 'lista_publicaciones' %}">Cancelar</a>  <!-- Enlace para cancelar -->
+    <div class="container">
+        <h1>Confirmar eliminación de publicación</h1>
+        <p>¿Seguro que deseas eliminar la publicación "{{ publicacion.titulo }}"?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit">Eliminar</button>
+                <a href="{% url 'lista_publicaciones' %}">Cancelar</a>  <!-- Enlace para cancelar -->
+            </div>
+        </form>
+    </div>
 </body>
 </html>
-
